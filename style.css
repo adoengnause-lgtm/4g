@@ -1,0 +1,297 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --page-bg: #0b0f14;
+  --text: #f7f8fb;
+  --muted: #aab3c0;
+  --blue: #4b91ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+/* HALAMAN PEMBUKA */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #102447;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("./foto-alumni.jpg");
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 12, 28, 0.25),
+    rgba(5, 12, 28, 0.30),
+    rgba(5, 12, 28, 0.55)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1.2s ease-out both;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(38px, 8vw, 100px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.55);
+}
+
+.hero h1 span {
+  display: block;
+  margin-top: 8px;
+  color: #2587ff;
+  font-size: 1.12em;
+}
+
+/* TOMBOL SCROLL */
+.scroll-button {
+  position: absolute;
+  z-index: 3;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: white;
+  font-size: 27px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1.7s infinite;
+  transition: background 0.3s;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* BAGIAN MEDIA SOSIAL */
+.social-section {
+  padding: 88px 7vw 100px;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(43, 76, 130, 0.16),
+      transparent 55%
+    ),
+    var(--page-bg);
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  margin-bottom: 12px;
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: -1px;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* SUSUNAN KARTU PROFIL */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 24px;
+  text-align: center;
+  background: linear-gradient(145deg, #171d25, #10151c);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(75, 145, 255, 0.55);
+}
+
+/* FOTO PROFIL */
+.profile-photo {
+  width: 116px;
+  height: 116px;
+  margin-bottom: 18px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  background: #252c35;
+}
+
+.social-card h3 {
+  margin-bottom: 7px;
+  font-size: 21px;
+}
+
+.username {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* TOMBOL INSTAGRAM */
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 220px;
+  margin-top: auto;
+  padding: 12px 16px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(110deg, #405de6, #833ab4, #c13584);
+  border-radius: 10px;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.instagram-link:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.instagram-link span {
+  font-size: 17px;
+}
+
+/* ANIMASI */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* TAMPILAN TABLET */
+@media (max-width: 900px) {
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .social-section {
+    padding: 70px 5vw 80px;
+  }
+}
+
+/* TAMPILAN HP */
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 55px);
+    letter-spacing: -1px;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .social-section {
+    padding: 62px 20px 70px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .social-card {
+    padding: 26px 20px 22px;
+  }
+}
+
+/* AKSESIBILITAS */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
